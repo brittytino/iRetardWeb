@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="iRetardgram - Reclaim your attention">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0f" />
+      <stop offset="60%" stop-color="#0f111f" />
+      <stop offset="100%" stop-color="#101a24" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.2" r="0.7">
+      <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#00e5ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <g fill="#e8e8ef" font-family="Space Grotesk, Arial, sans-serif">
+    <text x="80" y="260" font-size="72" font-weight="700">iRetardgram</text>
+    <text x="80" y="340" font-size="40" font-weight="400" fill="#9aa4b2">Distraction-free Instagram, built for focus.</text>
+  </g>
+  <g fill="none" stroke="#00e5ff" stroke-opacity="0.35">
+    <circle cx="980" cy="140" r="120" />
+    <circle cx="1030" cy="200" r="200" />
+  </g>
+</svg>

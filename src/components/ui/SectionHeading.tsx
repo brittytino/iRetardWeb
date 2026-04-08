@@ -11,7 +11,6 @@ export default function SectionHeading({
   accent = "cyan",
   align = "center",
 }: SectionHeadingProps) {
-  const accentColor = accent === "cyan" ? "text-cyan" : "text-lime";
   const alignment = align === "center" ? "text-center" : "text-left";
 
   return (

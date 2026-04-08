@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useGsapReveal } from "@/hooks/useGsapReveal";
+import { useGsapReveal } from "@/lib/animations/useGsapReveal";
 
 interface CardProps {
   icon: string;

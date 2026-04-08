@@ -1,6 +1,7 @@
 "use client";
 
-import { useAnimatedCounter } from "@/hooks/useAnimatedCounter";
+import { useRef } from "react";
+import { useAnimatedCounter } from "@/lib/animations/useAnimatedCounter";
 
 interface TrustBadgeProps {
   icon: string;
@@ -17,14 +18,15 @@ export default function TrustBadge({
   valueSuffix = "",
   displayValue,
 }: TrustBadgeProps) {
-  const counter = value !== undefined ? useAnimatedCounter(value, 2, valueSuffix) : null;
+  const counterRef = useRef<HTMLSpanElement>(null);
+  const displayed = useAnimatedCounter(counterRef, value ?? 0, 2, valueSuffix);
 
   return (
     <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-surface/50 border border-border/50 hover:border-cyan/20 transition-all duration-300 group">
       <span className="text-2xl">{icon}</span>
       <span className="text-xl font-extrabold tracking-tight text-foreground">
-        {counter ? (
-          <span ref={counter.ref}>{counter.displayed}</span>
+        {value !== undefined ? (
+          <span ref={counterRef}>{displayed}</span>
         ) : (
           displayValue || "—"
         )}
