@@ -1,38 +1,101 @@
 import Button from "@/components/ui/Button";
+import { ArrowDown, BookOpen, Puzzle, Smartphone } from "lucide-react";
 
 export default function HeroContent() {
   return (
-    <div className="relative z-10 w-full max-w-4xl mx-auto px-6 flex flex-col items-center text-center justify-center h-full pointer-events-none">
-      <h1 
-        className="font-black tracking-tighter mb-8 text-white mix-blend-difference drop-shadow-[0_4px_24px_rgba(0,0,0,0.4)]" 
-        style={{ 
-          fontFamily: "var(--font-space-grotesk)",
-          fontSize: "clamp(2.5rem, 8vw, 6rem)", 
-          lineHeight: 1.05, 
-          letterSpacing: "-0.05em" 
-        }}
-      >
-        Distraction-free Instagram <br />
-        <span className="text-cyan inline-block mt-2" style={{ textShadow: "0 0 20px rgba(0, 229, 255, 0.4)" }}>
-          for real connection.
-        </span>
-      </h1>
-      
-      <p className="max-w-2xl text-lg sm:text-2xl text-white/80 font-medium mb-12 flex-shrink-0 tracking-wide font-sans drop-shadow-[0_2px_12px_rgba(0,0,0,0.6)] mix-blend-plus-lighter pointer-events-auto">
-        iRetardgram is a focused Instagram client that blocks infinite feeds and reels while keeping messages, stories, search, and notifications intact.
-      </p>
-      
-      <div className="flex flex-col sm:flex-row gap-6 pointer-events-auto items-center justify-center mt-4">
-        <Button href="https://github.com/brittytino/iRetardgram/releases/latest" variant="primary" size="lg" glow>
-          Download APK
-        </Button>
-        <Button href="https://github.com/brittytino/iRetardgram" variant="secondary" size="lg">
-          View Source
-        </Button>
-        <Button href="/docs" variant="ghost" size="lg">
-          Documentation
-        </Button>
+    <section className="relative z-10 w-full min-h-screen px-4 sm:px-6 flex items-center justify-center">
+      <div className="w-full max-w-3xl mx-auto flex flex-col items-center text-center">
+        
+        {/* Badge */}
+        <div className="mb-6 px-3 py-1.5 rounded-full border border-lime-300/20 bg-lime-300/10 text-[10px] uppercase tracking-[0.2em] text-lime-300 backdrop-blur-sm">
+          Designed for focus
+        </div>
+
+        {/* Headline */}
+        <h1
+          className="text-white font-semibold tracking-tight leading-[1.1]"
+          style={{
+            fontFamily: "var(--font-space-grotesk)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Instagram,
+          <br />
+          <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            without the distractions.
+          </span>
+        </h1>
+
+        {/* Subtext */}
+        <p className="mt-4 text-xs sm:text-sm text-white/70 max-w-lg leading-relaxed">
+          iRetard removes infinite feeds and recommendation loops, while keeping
+          messaging, stories, and essential features intact.
+        </p>
+
+        {/* CTA */}
+        <div className="mt-6 flex flex-col sm:flex-row gap-2 items-center justify-center">
+          <Button
+            href="https://github.com/brittytino/iRetardgram/releases/latest"
+            variant="primary"
+            size="lg"
+            glow
+          >
+            <span className="flex items-center gap-2">
+              Download APK
+              <ArrowDown size={16} />
+            </span>
+          </Button>
+
+          <Button href="/docs" variant="ghost" size="lg">
+            <span className="flex items-center gap-2">
+              Documentation
+              <BookOpen size={16} />
+            </span>
+          </Button>
+        </div>
+
+        {/* Feature Cards */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+          
+          {/* Mobile */}
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 text-left">
+            <div className="flex items-center gap-2 text-white/50 text-xs uppercase tracking-[0.2em] mb-3">
+              <Smartphone size={14} />
+              Mobile App
+            </div>
+
+            <h3 className="text-white text-lg font-semibold mb-2">
+              Focused experience
+            </h3>
+
+            <p className="text-white/60 text-sm leading-relaxed">
+              Feed and reels are removed, while messages, stories, and profiles remain fully usable.
+            </p>
+          </div>
+
+          {/* Extension */}
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-5 text-left">
+            <div className="flex items-center gap-2 text-white/50 text-xs uppercase tracking-[0.2em] mb-3">
+              <Puzzle size={14} />
+              Chrome Extension
+            </div>
+
+            <h3 className="text-white text-lg font-semibold mb-2">
+              Controlled usage
+            </h3>
+
+            <p className="text-white/60 text-sm leading-relaxed">
+              A strict browsing layer that limits time and removes algorithm-driven content.
+            </p>
+          </div>
+        </div>
+
+        {/* Trust line */}
+        <div className="mt-10 text-xs text-white/30 tracking-wide">
+          Open source • No tracking • No engagement algorithms
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

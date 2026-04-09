@@ -4,7 +4,7 @@ import DocsClient from "@/app/docs/DocsClient";
 export const metadata: Metadata = {
   title: "Documentation",
   description:
-    "iRetardgram documentation covering installation, build pipeline, block matrix, and troubleshooting.",
+    "iRetard documentation for both mobile app and Chrome extension: strict policy, network blocking rules, and local unpacked install instructions.",
   alternates: {
     canonical: "/docs",
   },
@@ -14,9 +14,9 @@ export default function DocsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    headline: "iRetardgram Documentation",
+    headline: "iRetard Documentation (App + Extension)",
     description:
-      "Installation, build pipeline, block matrix, keystore signing, and debugging guidance for iRetardgram.",
+      "Documentation for iRetard mobile app and strict local-only Chrome extension, including blocking behavior and unpacked installation flow.",
     author: {
       "@type": "Organization",
       name: "iRetardgram",

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -7,10 +8,13 @@ import { useState } from "react";
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const directApkUrl = "https://github.com/brittytino/iRetardgram/releases/latest/download/iRetardgram_patched_instagram_latest_stories_enabled.apk";
 
   const links = [
     { href: "/", label: "Home" },
     { href: "/docs", label: "Docs" },
+    { href: "/docs#products", label: "Products" },
+    { href: "/docs#load-unpacked", label: "Extension Setup" },
     { href: "https://github.com/brittytino/iRetardgram/releases", label: "Releases", external: true },
     { href: "https://github.com/brittytino/iRetardgram", label: "GitHub", external: true },
   ];
@@ -20,11 +24,20 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <span className="text-xl font-extrabold tracking-tighter">
-            <span className="text-cyan">i</span>Retard<span className="text-lime">gram</span>
+          <Image
+            src="/instagram_logo.png"
+            alt="iRetardLab Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8 object-contain transition-transform duration-200 group-hover:scale-110"
+            priority
+          />
+
+          <span className="text-lg font-extrabold tracking-tighter">
+            <span className="text-cyan">i</span>Retard
+            <span className="text-lime">Lab</span>
           </span>
         </Link>
-
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => {
@@ -44,16 +57,15 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm transition-colors duration-200 ${
-                  isActive ? "text-cyan font-medium" : "text-muted hover:text-foreground"
-                }`}
+                className={`text-sm transition-colors duration-200 ${isActive ? "text-cyan font-medium" : "text-muted hover:text-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
             );
           })}
           <a
-            href="https://github.com/brittytino/iRetardgram/releases/latest"
+            href={directApkUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-1.5 rounded-full text-sm font-medium bg-cyan/10 text-cyan border border-cyan/20 hover:bg-cyan/20 transition-all duration-200"
@@ -94,11 +106,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-3 rounded-lg text-sm transition-colors ${
-                    link.href === pathname
+                  className={`px-4 py-3 rounded-lg text-sm transition-colors ${link.href === pathname
                       ? "text-cyan bg-cyan/5"
                       : "text-muted hover:text-foreground hover:bg-surface"
-                  }`}
+                    }`}
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -106,7 +117,7 @@ export default function Navbar() {
               )
             )}
             <a
-              href="https://github.com/brittytino/iRetardgram/releases/latest"
+              href={directApkUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mx-4 mt-2 px-4 py-2.5 rounded-full text-sm font-medium text-center bg-cyan/10 text-cyan border border-cyan/20"

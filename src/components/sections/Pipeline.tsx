@@ -21,7 +21,7 @@ export default function Pipeline() {
             { step: "Tag", desc: "Automated trigger off repository tagging." },
             { step: "Build", desc: "Fetches base Instagram APK & applies our semantic patches." },
             { step: "Sign", desc: "Keystore secures the package against tampering." },
-            { step: "Ship", desc: "Published directly to GitHub Releases." }
+            { step: "Ship", desc: "APK to GitHub Releases, extension as local unpacked source build." }
           ].map((item, i) => (
             <div key={i} className={`pipeline-step relative flex sm:w-[50%] mb-24 ${i % 2 === 0 ? "sm:pr-24 sm:self-start sm:text-right" : "sm:pl-24 sm:self-end sm:text-left"} pl-8 sm:pl-0 w-full`}>
               <div className={`absolute top-2 w-4 h-4 rounded-full bg-black border-[3px] border-cyan shadow-[0_0_15px_rgba(0,229,255,0.6)] ${i % 2 === 0 ? "right-[-8px]" : "left-[-8px]"} sm:block hidden z-30`} />

@@ -1,10 +1,13 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   Project: [
     { label: "Releases", href: "https://github.com/brittytino/iRetardgram/releases", external: true },
     { label: "Source Code", href: "https://github.com/brittytino/iRetardgram", external: true },
     { label: "Documentation", href: "/docs" },
+    { label: "Products", href: "/docs#products" },
+    { label: "Local Extension Setup", href: "/docs#load-unpacked" },
   ],
   Community: [
     { label: "Discord", href: "#", external: true },
@@ -24,11 +27,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <span className="text-xl font-extrabold tracking-tighter">
-              <span className="text-cyan">i</span>Retard<span className="text-lime">gram</span>
-            </span>
+            <Image
+              src="/preview.png"
+              alt="iRetardLab Preview"
+              width={320}
+              height={320}
+              className="mb-4 w-[220px] sm:w-[280px] lg:w-[320px] h-auto"
+            />
+
             <p className="mt-3 text-sm text-muted leading-relaxed max-w-xs">
-              Distraction-control patches for Instagram. Focus over addiction.
+              Mobile app + browser extension for distraction-control. Focus over addiction.
             </p>
             <p className="mt-4 text-xs text-muted/60">
               Built upon{" "}
@@ -81,7 +89,7 @@ export default function Footer() {
           <p className="text-xs text-muted/50">
             © {new Date().getFullYear()} iRetardgram · Built by{" "}
             <a
-              href="https://github.com/brittytino"
+              href="https://tinobritty.me"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-foreground transition-colors"

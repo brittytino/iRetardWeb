@@ -3,18 +3,36 @@ import HomeClient from "@/app/HomeClient";
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "iRetardgram",
-    applicationCategory: "ProductivityApplication",
-    operatingSystem: "Android",
-    description:
-      "A distraction-free Instagram client that blocks infinite feeds and reels while keeping messages, stories, search, and notifications.",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    url: "https://iretardgram.app",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: "iRetard Mobile App",
+        applicationCategory: "ProductivityApplication",
+        operatingSystem: "Android",
+        description:
+          "A distraction-reduced Instagram mobile application that blocks feed/recommendation loops while preserving communication features.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        url: "https://iretardgram.app",
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "iRetard Browser Extension",
+        applicationCategory: "BrowserApplication",
+        operatingSystem: "Chrome, Edge, Brave, Opera, Vivaldi, Firefox",
+        description:
+          "Open-source extension distributed as local unpacked install with no paid store deployment.",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+        url: "https://iretardgram.app/docs#extension-local-install",
+      },
+    ],
   };
 
   return (

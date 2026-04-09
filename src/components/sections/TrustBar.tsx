@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useScrollParallax } from "@/lib/animations/presets";
-import { Code2, ShieldCheck, Download, MessageSquare } from "lucide-react";
+import { Code2, ShieldCheck, Download, Puzzle } from "lucide-react";
 import { useAnimatedCounter } from "@/lib/animations/useAnimatedCounter";
 import type { LucideIcon } from "lucide-react";
 
@@ -38,14 +38,14 @@ export default function TrustBar() {
         <CounterItem icon={Code2} value={100} suffix="%" label="Open Source" delayVal={0} />
         <div className="trust-metric flex flex-col items-center justify-center p-8 rounded-[2rem] bg-white/[0.02] border border-lime/10 shadow-[0_0_40px_rgba(198,255,0,0.03)] backdrop-blur-sm" style={{ transform: `translateY(${-20}px)` }}>
           <ShieldCheck className="w-8 h-8 text-lime/70 mb-4 stroke-[1.5px]" />
-          <div className="text-4xl sm:text-5xl font-black text-white font-space-grotesk tracking-tighter">Auto</div>
-          <div className="text-lime/60 text-xs font-bold uppercase tracking-[0.2em] mt-3">Signed APKs</div>
+          <div className="text-4xl sm:text-5xl font-black text-white font-space-grotesk tracking-tighter">Zero $</div>
+          <div className="text-lime/60 text-xs font-bold uppercase tracking-[0.2em] mt-3">Store Spend</div>
         </div>
         <CounterItem icon={Download} value={10} suffix="k+" label="Downloads" delayVal={40} />
         <div className="trust-metric flex flex-col items-center justify-center p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 backdrop-blur-sm" style={{ transform: `translateY(${-10}px)` }}>
-          <MessageSquare className="w-8 h-8 text-white/40 mb-4 stroke-[1.5px]" />
-          <div className="text-4xl sm:text-5xl font-black text-white font-space-grotesk tracking-tighter">24/7</div>
-          <div className="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mt-3">Discord</div>
+          <Puzzle className="w-8 h-8 text-white/40 mb-4 stroke-[1.5px]" />
+          <div className="text-4xl sm:text-5xl font-black text-white font-space-grotesk tracking-tighter">Local</div>
+          <div className="text-white/40 text-xs font-bold uppercase tracking-[0.2em] mt-3">Extension Mode</div>
         </div>
       </div>
     </section>
