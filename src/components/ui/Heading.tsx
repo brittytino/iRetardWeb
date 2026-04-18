@@ -17,7 +17,7 @@ export default function Heading({
 }: HeadingProps) {
   const Component = level;
   
-  const baseStyles = "font-black tracking-tighter text-white";
+  const baseStyles = "font-bold tracking-tight text-white";
   const alignStyles = {
     left: "text-left",
     center: "text-center",
@@ -25,12 +25,12 @@ export default function Heading({
   };
   
   const sizes = {
-    h1: "text-[clamp(3rem,8vw,7rem)] leading-[0.9]",
-    h2: "text-5xl sm:text-6xl lg:text-[5.5rem] leading-[0.95]",
-    h3: "text-4xl",
-    h4: "text-2xl",
-    h5: "text-xl",
-    h6: "text-lg",
+    h1: "text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/60",
+    h2: "text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight",
+    h3: "text-3xl sm:text-4xl leading-tight",
+    h4: "text-2xl leading-snug",
+    h5: "text-xl leading-snug",
+    h6: "text-lg leading-snug",
   };
 
   return (

@@ -1,27 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #e8e8ef;
+  --background: #030303;
+  --foreground: #f8f8f8;
+  
+  /* Premium cinematic gradient colors */
+  --purple: #8a2be2;
+  --pink: #ff007f;
   --cyan: #00e5ff;
   --lime: #c6ff00;
-  --surface: #141420;
-  --surface-light: #1e1e30;
-  --muted: #8888aa;
-  --border: #2a2a40;
+  
+  /* Component backgrounds */
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-light: rgba(255, 255, 255, 0.05);
+  
+  --muted: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-light: rgba(255, 255, 255, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-purple: var(--purple);
+  --color-pink: var(--pink);
   --color-cyan: var(--cyan);
   --color-lime: var(--lime);
   --color-surface: var(--surface);
   --color-surface-light: var(--surface-light);
   --color-muted: var(--muted);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-outfit: var(--font-outfit);
 }
 
 /* ── Base ─────────────────────────────────────────── */
@@ -52,57 +62,81 @@ body::before {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
+  mix-blend-mode: overlay;
 }
 
 /* ── Typography ───────────────────────────────────── */
-h1, h2, h3, h4 {
-  font-weight: 800;
-  letter-spacing: -0.03em;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit);
+  font-weight: 700;
+  letter-spacing: -0.04em;
   line-height: 1.1;
 }
 
+/* ── Glassmorphism ────────────────────────────────── */
+.glass {
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* ── Premium Gradients ────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(100deg, #fff 20%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(135deg, #00e5ff 0%, #ff007f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-mesh-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ── Glow utilities ───────────────────────────────── */
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.15),
-              0 0 60px rgba(0, 229, 255, 0.05);
+.glow-primary {
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.2),
+              0 0 80px rgba(255, 0, 127, 0.15);
 }
 
-.glow-lime {
-  box-shadow: 0 0 20px rgba(198, 255, 0, 0.15),
-              0 0 60px rgba(198, 255, 0, 0.05);
-}
-
-.text-glow-cyan {
-  text-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-}
-
-.text-glow-lime {
-  text-shadow: 0 0 30px rgba(198, 255, 0, 0.3);
-}
-
-/* ── Gradient backgrounds ─────────────────────────── */
-.gradient-radial-top {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0,229,255,0.08), transparent);
-}
-
-.gradient-radial-center {
-  background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,229,255,0.06), transparent);
+.glow-subtle {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05),
+              0 0 40px rgba(255, 255, 255, 0.02);
 }
 
 /* ── Custom scrollbar ─────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 3px;
+  background: var(--border-light);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted);
@@ -110,6 +144,6 @@ h1, h2, h3, h4 {
 
 /* ── Selection ────────────────────────────────────── */
 ::selection {
-  background: rgba(0, 229, 255, 0.25);
+  background: rgba(255, 0, 127, 0.3);
   color: #fff;
 }

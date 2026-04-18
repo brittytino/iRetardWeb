@@ -12,15 +12,15 @@ interface CardProps {
 }
 
 const variantStyles = {
-  blocked: "border-red-500/20 hover:border-red-500/40",
-  allowed: "border-cyan/20 hover:border-cyan/40",
-  neutral: "border-border hover:border-border",
+  blocked: "border-[rgba(255,0,127,0.2)] hover:border-[rgba(255,0,127,0.5)] hover:shadow-[0_8px_30px_rgba(255,0,127,0.15)]",
+  allowed: "border-[rgba(0,229,255,0.2)] hover:border-[rgba(0,229,255,0.5)] hover:shadow-[0_8px_30px_rgba(0,229,255,0.15)]",
+  neutral: "border-border hover:border-border-light",
 };
 
 const iconBgStyles = {
-  blocked: "bg-red-500/10 text-red-400",
-  allowed: "bg-cyan/10 text-cyan",
-  neutral: "bg-surface-light text-muted",
+  blocked: "bg-[rgba(255,0,127,0.1)] text-[#ff007f]",
+  allowed: "bg-[rgba(0,229,255,0.1)] text-[#00e5ff]",
+  neutral: "bg-surface-light text-muted text-white",
 };
 
 export default function Card({
@@ -38,25 +38,28 @@ export default function Card({
       ref={ref}
       className={`
         group relative overflow-hidden
-        rounded-2xl border p-6
-        bg-surface/50 backdrop-blur-sm
-        transition-all duration-300
-        hover:bg-surface-light/50
-        hover:shadow-lg
+        rounded-3xl p-8
+        glass-card
+        transition-all duration-500 ease-out
+        hover:-translate-y-1
         ${variantStyles[variant]}
       `}
     >
+      {/* Premium accent highlight on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none" />
+      
       <div
         className={`
-        w-10 h-10 rounded-xl flex items-center justify-center text-lg mb-4
+        w-12 h-12 rounded-2xl flex items-center justify-center text-xl mb-6
+        transition-colors duration-300
         ${iconBgStyles[variant]}
       `}
       >
         {icon}
       </div>
-      <h3 className="font-bold text-base text-foreground">{title}</h3>
+      <h3 className="font-bold text-xl text-foreground font-outfit tracking-tight">{title}</h3>
       {description && (
-        <p className="mt-2 text-sm text-muted leading-relaxed">{description}</p>
+        <p className="mt-3 text-sm sm:text-base text-muted leading-relaxed font-medium">{description}</p>
       )}
     </div>
   );
